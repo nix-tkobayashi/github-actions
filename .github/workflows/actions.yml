@@ -23,9 +23,8 @@ jobs:
         if: success()
         run: echo "SUCCESS!"
       - name: Slack Notification on Failure
-        uses: rtCamp/action-slack-notify@v2.0.2
         if: failure()
-        run: echo "FAILURE!!"
+        uses: rtCamp/action-slack-notify@v2.0.2
         env:
           SLACK_CHANNEL: tkobayashi-test
           SLACK_TITLE: Test Failure
