@@ -15,7 +15,6 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-          cd github-actions
           git secrets --register-aws --global
           git secrets --scan
       - run: echo "🍏 This job's status is ${{ job.status }}."
