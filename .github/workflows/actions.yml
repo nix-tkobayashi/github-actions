@@ -1,7 +1,7 @@
 name: GitHub Actions Demo
 on: [push]
 env:
-  SLACK_WEBHOOK: https://hooks.slack.com/services/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
+  SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
