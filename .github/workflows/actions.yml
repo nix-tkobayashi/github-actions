@@ -17,4 +17,10 @@ jobs:
           ls ${{ github.workspace }}
           git secrets --register-aws --global
           git secrets --scan
+      - name: Slack Notification on Success
+        if: success()
+        run: echo "SUCCESS!"
+      - name: Slack Notification on Failure
+        if: failure()
+        run: echo "FAILURE!!"
       - run: echo "🍏 This job's status is ${{ job.status }}."
