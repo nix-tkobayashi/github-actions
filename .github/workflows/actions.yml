@@ -1,5 +1,7 @@
 name: GitHub Actions Demo
 on: [push]
+env:
+  SLACK_WEBHOOK: https://hooks.slack.com/services/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
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -21,6 +23,11 @@ jobs:
         if: success()
         run: echo "SUCCESS!"
       - name: Slack Notification on Failure
+        uses: rtCamp/action-slack-notify@v2.0.2
         if: failure()
         run: echo "FAILURE!!"
+        env:
+          SLACK_CHANNEL: tkobayashi-test
+          SLACK_TITLE: Test Failure
+          SLACK_COLOR: danger
       - run: echo "🍏 This job's status is ${{ job.status }}."
